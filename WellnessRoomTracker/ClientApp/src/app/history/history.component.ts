@@ -34,6 +34,7 @@ export class HistoryComponent implements OnInit {
           status.changedTime = date.toLocaleString();
           this.history.push(status);
           //test git add
+          //branch test
         } 
       }
     );
