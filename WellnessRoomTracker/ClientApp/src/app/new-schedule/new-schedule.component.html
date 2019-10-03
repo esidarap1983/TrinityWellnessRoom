@@ -1,0 +1,33 @@
+<form #f="ngForm">
+    <div class="form-group">
+        <label for="person">Who are you?</label>
+        <select id="person" #selectedUserId="ngModel" [(ngModel)]="selectedUser" name="selectedUserId"
+            class="form-control" required>
+            <option></option>
+            <option *ngFor="let p of persons" value={{p.id}}>{{p.name}}</option>
+        </select>
+    </div>
+    <div class="alert alert-danger" *ngIf="!selectedUserId.valid">Please tell us who you are.</div>
+    <div class="form-group">
+        <!--label></label-->
+        <div>
+            <mat-form-field>
+                <input matInput [matDatepicker]="picker" placeholder="Choose a date"     [(ngModel)]="selectedDate"  name="startDate" required>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <!--div class="alert alert-danger" *ngIf="!selectedDate.valid">Please select a date.</div-->
+        </div>
+        <div>
+            <label>Choose start time</label>
+            <ngb-timepicker [(ngModel)]="startTime" name="startTime" (ngModelChange) = "startChange()"></ngb-timepicker>
+        </div>
+        <div>
+                <label>Choose end time</label>
+            <ngb-timepicker [(ngModel)]="endTime" name='endTime'   ></ngb-timepicker>
+        </div>
+    </div> 
+    <div class="form-group">
+        <button class="btn btn-primary" [disabled]="!f.valid" (click)="saveSchedule()">Save</button>
+    </div>
+</form>

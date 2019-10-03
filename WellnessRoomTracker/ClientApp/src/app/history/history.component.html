@@ -1,0 +1,26 @@
+<h1>Check in/check out history</h1>
+<div class="form-group well">
+    <label for="person">Filter by person</label>
+    <select id="person" name=""   class="form-control">
+            <option  ></option>
+            <option *ngFor="let p of persons" value="{{p.id}}">{{p.name}}</option>
+    </select> 
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Status</th>
+            <th>Changed by</th>
+            <th>Changed time</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let row of history">
+                <th>{{row.id}}</th>
+                <th>{{row.isCheckin?"Check in":"Check out"}}</th>
+                <th>{{row.changedByName}}</th>
+                <th>{{ row.changedTime  }}</th>
+        </tr>
+    </tbody>
+</table>

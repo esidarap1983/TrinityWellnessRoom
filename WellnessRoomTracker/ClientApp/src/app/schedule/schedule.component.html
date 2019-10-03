@@ -1,0 +1,21 @@
+<h1>Upcoming schedule</h1>
+<head> <base href="./"> </head>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Person</th>
+            <th>From</th>
+            <th>To</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let schedule of schedules">
+             <td>{{schedule.id}}</td>
+             <td>{{schedule.person.name}}</td>
+             <td>{{schedule.from}}</td>
+             <td>{{schedule.to}}</td>
+        </tr>
+    </tbody>
+</table>
+<p><a  routerLink ="/newSchedule" class="btn btn-primary" >Add your schedule</a></p> 

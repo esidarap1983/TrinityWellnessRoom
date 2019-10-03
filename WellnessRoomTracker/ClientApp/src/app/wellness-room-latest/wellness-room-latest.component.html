@@ -1,0 +1,20 @@
+<h1>Welcome to Trinity Wellness room register</h1>
+
+<p>
+     
+</p>
+<form #f="ngForm"  >
+        <div class="form-group">
+            <label  for="person"  >Who are you?</label>
+            <select id="person" #selectedUserId = "ngModel"    [(ngModel)]="currentStatus.changedById"  name="selectedUserId"  class="form-control" required>
+                <option  ></option>
+                <option *ngFor="let p of persons" value={{p.id}}>{{p.name}}</option>
+            </select>
+        </div>
+        <div class="alert alert-danger" *ngIf="!selectedUserId.valid">Please tell us who you are.</div>
+    <div class="form-group">
+        <label id="roomStatus" >Wellness room is currently {{checkinStatus}}</label> 
+    </div> 
+    <button class="btn btn-primary" [disabled]="!f.valid" (click) = "clickme()">{{submitButtonText}}</button>
+     
+</form>
