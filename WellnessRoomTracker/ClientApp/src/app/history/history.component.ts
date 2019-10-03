@@ -33,6 +33,7 @@ export class HistoryComponent implements OnInit {
           var date = new Date(h[i].changedTime); 
           status.changedTime = date.toLocaleString();
           this.history.push(status);
+          //test git add
         } 
       }
     );
